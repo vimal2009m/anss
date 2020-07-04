@@ -1,0 +1,6 @@
+[all]
+ansnode02
+ansnode03
+
+[webservers]
+ansnode03

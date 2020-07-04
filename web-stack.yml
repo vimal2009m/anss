@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+- name: apply common configuration
+  hosts: all
+  user: devuser
+  become: yes
+  become_method: sudo
+  tasks:
+
+  roles:
+    - common
+
+- name: install and configure apache webserver
+  hosts: webservers
+  user: devuser
+  become: yes
+  become_method: sudo
+  tasks:
+
+  roles:
+    - web

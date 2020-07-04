@@ -1,0 +1,14 @@
+---
+
+- name: install nginx packages
+  apt: pkg={{ item }} state=present
+  with_items:
+   - nginx
+   - tree
+
+- name: copy nginx index file
+  template: src=index.html dest=/usr/share/nginx/html/index.html
+  tags: nginx
+
+  notify: restart nginx service
+
